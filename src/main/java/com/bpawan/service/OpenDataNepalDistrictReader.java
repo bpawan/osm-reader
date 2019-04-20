@@ -1,4 +1,4 @@
-package com.bpawan.api.service;
+package com.bpawan.service;
 
 import com.bpawan.dal.entity.District;
 import com.bpawan.dal.repository.DistrictRepository;
