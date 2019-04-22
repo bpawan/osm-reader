@@ -3,21 +3,28 @@ package com.bpawan.api.controller;
 import com.bpawan.api.dto.District;
 import com.bpawan.api.mapper.DistrictMapper;
 import com.bpawan.dal.repository.DistrictRepository;
+import com.bpawan.service.model.Population;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(path = "/district", produces= MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/district", produces = MediaType.APPLICATION_JSON_VALUE)
 public class DistrictController {
 
     private final DistrictRepository districtRepository;
 
     private final DistrictMapper districtMapper;
 
-    public DistrictController(DistrictRepository districtRepository, DistrictMapper districtMapper) {
+
+    public DistrictController(
+            DistrictRepository districtRepository,
+            DistrictMapper districtMapper
+    ) {
         this.districtRepository = districtRepository;
         this.districtMapper = districtMapper;
     }
@@ -41,5 +48,22 @@ public class DistrictController {
                                 .districtRepository
                                 .save(this.districtMapper.fromDTOToEntity(district))
                 );
+    }
+
+    @GetMapping("features")
+    public com.bpawan.dal.entity.District features() {
+        var district = new com.bpawan.dal.entity.District();
+        district.setName("Taplejung");
+        district.setNumberOfMunicipalities(1);
+        district.setNumberOfVDCS(100);
+
+        var features = new HashMap<String, String>();
+
+        features.put("population", "1000");
+        features.put("area", "200");
+
+        district.setFeatures(features);
+
+        return this.districtRepository.save(district);
     }
 }

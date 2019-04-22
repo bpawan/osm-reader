@@ -1,11 +1,17 @@
 package com.bpawan.dal.entity;
 
+import com.bpawan.dal.types.PostgresHstoreType;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Map;
 
 @Entity
+@TypeDef(name = "hstore", typeClass = PostgresHstoreType.class)
 public class District {
     @Id
     @GeneratedValue
@@ -19,7 +25,19 @@ public class District {
     @Column(name = "municipality_count")
     private Integer numberOfMunicipalities;
 
+    @Type(type = "hstore")
+    @Column(columnDefinition = "hstore")
+    private Map<String, String> features;
+
     public District() {
+    }
+
+    public Map<String, String> getFeatures() {
+        return features;
+    }
+
+    public void setFeatures(Map<String, String> features) {
+        this.features = features;
     }
 
     public Long getId() {
