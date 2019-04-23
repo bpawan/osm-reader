@@ -1,4 +1,4 @@
-package com.bpawan.service;
+package com.bpawan.service.osmosis;
 
 import org.openstreetmap.osmosis.core.container.v0_6.*;
 import org.openstreetmap.osmosis.core.domain.v0_6.Tag;

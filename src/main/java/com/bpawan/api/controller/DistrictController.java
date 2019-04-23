@@ -3,11 +3,9 @@ package com.bpawan.api.controller;
 import com.bpawan.api.dto.District;
 import com.bpawan.api.mapper.DistrictMapper;
 import com.bpawan.dal.repository.DistrictRepository;
-import com.bpawan.service.model.Population;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;

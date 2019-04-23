@@ -1,7 +1,7 @@
 package com.bpawan.api.controller;
 
-import com.bpawan.service.OSMReader;
-import com.bpawan.service.OpenDataNepalDistrictReader;
+import com.bpawan.service.osmosis.OSMReader;
+import com.bpawan.service.geojson.OpenDataNepalDistrictReader;
 import org.openstreetmap.osmosis.pbf2.v0_6.PbfReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

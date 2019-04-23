@@ -1,4 +1,4 @@
-package com.bpawan.service;
+package com.bpawan.service.geojson;
 
 import com.bpawan.dal.entity.District;
 import com.bpawan.dal.repository.DistrictRepository;
