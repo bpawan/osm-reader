@@ -3,6 +3,6 @@ import districtReducer from './districtReducer';
 
 export default redux.combineReducers(
     {
-        districts: districtReducer.call
+        districts: districtReducer
     }
 );

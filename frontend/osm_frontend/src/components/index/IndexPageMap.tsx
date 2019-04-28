@@ -4,7 +4,6 @@ import {Map, Polygon as PolygonObject, TileLayer} from 'react-leaflet';
 import {LatLngTuple} from "leaflet";
 import {FeatureCollection, GeoJsonProperties, Polygon} from "geojson";
 
-
 export class IndexPageMap extends React.Component<{}, {
     error: any,
     isLoaded: boolean,
@@ -46,6 +45,7 @@ export class IndexPageMap extends React.Component<{}, {
 
     createPolygonCoordinates(districtData: FeatureCollection<Polygon, GeoJsonProperties>): LatLngTuple[] {
         const coordinates: LatLngTuple[] = [];
+        console.log(districtData);
         districtData.features.forEach(value => {
             value.geometry.coordinates.forEach(a => {
                 a.forEach(x => {

@@ -6,19 +6,21 @@ const initialState: FetchDistrictState = {
     item: null
 };
 
-export default function (state: FetchDistrictState = initialState, action: FetchDistrictAction) {
-    switch (action.type) {
-        case FETCH_DISTRICTS:
-            return {
-                ...state,
-                items: action.payload
-            };
-        case NEW_DISTRICT:
-            return {
-                ...state,
-                item: action.payload
-            };
-        default:
-            return state;
+export default () => {
+    return (state: FetchDistrictState = initialState, action: FetchDistrictAction) => {
+        switch (action.type) {
+            case FETCH_DISTRICTS:
+                return {
+                    ...state,
+                    items: action.payload
+                };
+            case NEW_DISTRICT:
+                return {
+                    ...state,
+                    item: action.payload
+                };
+            default:
+                return state;
+        }
     }
 };

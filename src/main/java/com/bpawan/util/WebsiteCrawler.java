@@ -12,7 +12,7 @@ import java.io.IOException;
 public class WebsiteCrawler {
     public static void downloadFile(String url, String fileName) throws IOException {
         Document doc = Jsoup
-                .connect("url")
+                .connect(url)
                 .get();
 
         BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
